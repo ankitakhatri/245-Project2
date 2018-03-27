@@ -39,7 +39,7 @@ public class Test {
 	}
 	
 	/**
-	 * Prints the timing of all sorts in nano seconds. Does not count the overhead
+	 * Prints the timing of all sorts in nanoseconds. Does not count the overhead
 	 * of rewriting the unsorted list each time.
 	 * 
 	 * @param orig
@@ -93,26 +93,26 @@ public class Test {
 	private static ArrayBasedList<Product> setUp2() {
 		ArrayBasedList<Product> plist = new ArrayBasedList<Product>();
 		plist.add(new Product("F",new int[] {4,4,3,4,4,3,4,4,4,4,4,4,4,3,4}));
-		plist.add(new Product("AL",new int[] {2,2,2,2,1,2,2,2}}));
+		plist.add(new Product("AL",new int[] {2,2,2,2,1,2,2,2}));
 		plist.add(new Product("PI",new int[] {2,2,2,2,2,2,2,2}));
 		plist.add(new Product("S",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5}));
 		plist.add(new Product("A",new int[] {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4}));
-		plist.add(new Product("IS",new int[] {{3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3}}));
-		plist.add(new Product("ID",new int[] {2,2,2,2,1,1,1,2}}));
-		plist.add(new Product("U",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4}}));
-		plist.add(new Product("IL",new int[] {{3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3}}));
-		plist.add(new Product("T",new int[] {{3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,2,3,3,2,3,3,3,3}}));
+		plist.add(new Product("IS",new int[] {3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3}));
+		plist.add(new Product("ID",new int[] {2,2,2,2,1,1,1,2}));
+		plist.add(new Product("U",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4}));
+		plist.add(new Product("IL",new int[] {3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3}));
+		plist.add(new Product("T",new int[] {3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,2,3,3,2,3,3,3,3}));
 		plist.add(new Product("OUS",new int[] {1,1,1}));
 		plist.add(new Product("I",new int[] {4,4,4,3,4,4,4,4,4,4,4,4,4,3,4}));
-		plist.add(new Product("P",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4}}));
+		plist.add(new Product("P",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4}));
 		plist.add(new Product("CI",new int[] {2,2,1,1,1,1,1,2}));
-		plist.add(new Product("EX",new int[] {{3,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3}}));
-		plist.add(new Product("C",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4}}));
+		plist.add(new Product("EX",new int[] {3,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3}));
+		plist.add(new Product("C",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4}));
 		plist.add(new Product("O",new int[] {2,2,1,2,1,1,1,2}));
-		plist.add(new Product("E",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4}}));
+		plist.add(new Product("E",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4}));
 		plist.add(new Product("G",new int[] {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3}));
-		plist.add(new Product("R",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4}}));
-		plist.add(new Product("IC",new int[] {{3,3,3,3,3,3,3,3,2,3,3,3,2,3,3,3,3,2,3,3,2,3,3,3}}));
+		plist.add(new Product("R",new int[] {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4}));
+		plist.add(new Product("IC",new int[] {3,3,3,3,3,3,3,3,2,3,3,3,2,3,3,3,3,2,3,3,2,3,3,3}));
 		plist.add(new Product("L",new int[] {4,4,4,4,4,4,4,4,4,4,4,4,4,3,4}));
 		plist.add(new Product("RA",new int[] {4,4,3,4,4,3,3,4,4,4,4,4,4,3,4}));
 		return plist;
@@ -153,9 +153,9 @@ public class Test {
 		sw.write("Two Test\n");
 		sw.write("-----------\n");
 		ArrayBasedList<Product> plist = new ArrayBasedList<Product>();
-		plist.add(new Product("AB123",new int[] {5,4}));
 		plist.add(new Product("CD345",new int[] {5,3,2}));
-		if (testAccuracyFor(setUp1(),new String[] {"AB123","CD345"},sw)) {
+		plist.add(new Product("AB123",new int[] {5,4}));
+		if (testAccuracyFor(plist,new String[] {"AB123","CD345"},sw)) {
 			sw.write("Passes two sorting!\n");
 		}
 	}
@@ -215,8 +215,8 @@ public class Test {
 	private static boolean testAccuracyFor(ArrayBasedList<Product> orig, String[] answer, StringWriter sw) throws NoSuchMethodException, 
 	SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		boolean success = true;
-		Object[] sortNames = new Object[] {new BubbleSort(),new SelectionSort(),
-				new InsertionSort(),new MergeSort(),new QuickSort(),new HeapSort()};
+		Object[] sortNames = new Object[] { new InsertionSort(),
+				new QuickSort(),new BucketSort()};
 		for (Object sortName: sortNames) {
 			Method method = sortName.getClass().getMethod("sort",ArrayBasedList.class);
 			ArrayBasedList<Product> plist = new ArrayBasedList<Product>();
@@ -234,7 +234,7 @@ public class Test {
 						break;
 					}
 				} catch (NullPointerException | IndexOutOfBoundsException e) {
-					sw.write("!!! "+sortName.getClass().getName()+".sort throws an error\n");
+					sw.write("!!! "+sortName.getClass().getName()+" test throws an error\n");
 					success = false;
 					break;
 				}
@@ -306,7 +306,6 @@ public class Test {
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {				
 				fail.write(sortName.getClass().getName()+", ");
 				success = false;
-				e.printStackTrace();
 			}
 		}
 		if (success) {
@@ -339,7 +338,6 @@ public class Test {
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {				
 				fail.write(sortName.getClass().getName()+", ");
 				success = false;
-				e.printStackTrace();
 			}
 		}
 		if (success) {
@@ -375,7 +373,6 @@ public class Test {
 			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {				
 				fail.write(sortName.getClass().getName()+", ");
 				success = false;
-				e.printStackTrace();
 			}
 		}
 		if (success) {
