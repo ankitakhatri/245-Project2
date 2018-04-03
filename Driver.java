@@ -47,23 +47,19 @@ public class Driver {
                 			ratings[m] = Integer.parseInt(stringratings.substring(k, k+1).trim());
                 			m++;
                 		}
-                		// else 
-                		// {
-                		// 	if (!stringratings.substring(k, k+1).equals("["))
-                		// 	{
-                		// 		ratings[m] = Integer.parseInt(stringratings.substring(k, k+1));
-                		// 		m++;
-                		// 	}
-                		// 	if (k < stringratings.length()-1 && !stringratings.substring(k, k+2).equals("]\""))
-                		// 	{
-               			// 		ratings[m] = Integer.parseInt(stringratings.substring(k, stringratings.length()-2));
-               			// 		m++;
-               			// 	}
-               			// }
                 	}
                 }
                 // product.setRatings(ratings);
-                plist.add(product);
+
+                //don't add product to plist if it doesn't have ratings
+                if (product.getRatings().length==0)
+                {
+                	break;
+                }
+                else
+                {
+                	plist.add(product);
+                }
             }
         }
         catch (IOException f) 
@@ -88,8 +84,12 @@ public class Driver {
 		//TODO: Sort based on averageRating from highest to lowest.
 
 		//creat instance of insertion sort class, and call it on the plist
+		
 		InsertionSort insertionsort = new InsertionSort();
 		insertionsort.sort(plist);
+
+		//QuickSort quicksort = new QuickSort();
+		//quicksort.sort(plist);
 		
 		//TODO: Write to a new .csv file named whatever the file being read is with "_sorted"
 		//      added to it. So if the file being read is called ratings_Stuff.csv, your file

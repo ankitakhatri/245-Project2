@@ -28,8 +28,13 @@ public class Product implements Comparable<Product>
 
 	public int[] getRatings ()
 	{
+		// if (this.ratings.length==0)
+		// {
+		// 	return null;
+		// }
 		return Arrays.copyOf(ratings, ratings.length);
 	}
+
 	public void setRatings (int[] ratings)
 	{
 		this.ratings = Arrays.copyOf(ratings, ratings.length);
@@ -77,6 +82,25 @@ public class Product implements Comparable<Product>
     	}
     	//return 0 if they are the same
     	return 0;
+	}
+
+	public double getAverage()
+	{
+		int [] ratings = this.getRatings();
+    	int total = 0;
+    	int ratingsize = 0;
+
+    	while (ratingsize < ratings.length && ratings[ratingsize] != 0)
+    	{
+    		total+=ratings[ratingsize];
+    		ratingsize++;
+    	}
+    	//find average of the ratings of the key
+    	double average = (double)total/ratingsize;
+
+    	return average;
+
+    	//return average;
 	}
 	@Override
 	public String toString() 

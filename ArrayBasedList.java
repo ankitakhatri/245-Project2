@@ -21,6 +21,12 @@ public class ArrayBasedList<E> extends AbstractList<E> {
 		this.arr = (E[]) new Object [SIZE];
 		this.size = 0;
 	}
+
+	public ArrayBasedList(int size)
+	{
+		this.arr = (E[]) new Object [size];
+		this.size = 0;
+	}
 	
 	//TODO: Create and complete instance methods
 
@@ -92,7 +98,7 @@ public class ArrayBasedList<E> extends AbstractList<E> {
 	}
 	
 	@Override
-	//remove element at given index, move everything down one index, and decrease pointer for size
+	//remove element at given index, move everything down one index, and decrease pointer for sizeip
 	public E remove(int index) 
 	{
 		//TODO: Complete
