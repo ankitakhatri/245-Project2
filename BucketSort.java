@@ -35,10 +35,9 @@ public class BucketSort
 
         //sort within buckets using insertion sort
         InsertionSort insertionsort = new InsertionSort();
-        for (int n = 0; n < buckets.size(); n++)
+        for (int n = 0; n < 6; n++)
         {
         	insertionsort.sort(buckets.get(n));
-        	System.out.println(buckets.get(n));
         }
 
         //write sorted buckets back into plist

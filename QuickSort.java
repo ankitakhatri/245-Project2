@@ -10,14 +10,21 @@ public class QuickSort
 	}
 
 	//this is the recursive function that sorts everything to the left and right of the partition
-	public static void quickSort (ArrayBasedList<Product> plist, int low, int high)
+	private static void quickSort (ArrayBasedList<Product> plist, int low, int high)
 	{
-		if (low > high+1)
+		if (low > high)
 		{
-			int p = partition(plist, low, high);
-			quickSort (plist, low, p-1);
-			quickSort (plist, p+1, high);
+			int pivot = partition(plist, low, high);
+			quickSort (plist, low, pivot-1);
+			quickSort (plist, pivot+1, high);
 		}
+	}
+
+	//choosing a random pivot gives O(nlogn) every time
+	public static int getPivot(int low, int high)
+	{
+		Random rand = new Random();
+		return rand.nextInt(high);
 	}
 
 	//a swap function to make swapping easier
@@ -28,30 +35,30 @@ public class QuickSort
 		plist.set(ind2, temp);
 	}
 
-	//choosing a random pivot gives more accurate running time
-	public static int getPivot(int low, int high)
-	{
-		Random rand = new Random();
-		return rand.nextInt((high-low) + 1) + low;
-	}
 
 	//partition puts pivot in the low index position, so at 0, and moves everything else before or after it, so the list is in order
 	public static int partition(ArrayBasedList<Product> plist, int low, int high)
 	{
-		swap(plist, low, getPivot(low, high));
+		//get random pivot
+		int pivot = getPivot(low, high);
+		//swap pivot into left most position
+		swap(plist, low, pivot);
+		//set pointer to second to left position
 		int pointer = low + 1;
+		//iterate through this partition, if average at index i > average at low, you swap
 		for (int i = pointer; i <= high; i++)
 		{
 			Product product1 = plist.get(i);
             Product product2 = plist.get(low);
 
-            int difference = product1.compareTo(product2);
-            if (difference>0)
-            {
-            	swap(plist, i, pointer++);
-			}
+           if (product1.getAverage() > product2.getAverage())
+           {
+				swap (plist, i, pointer++);
+           }
 		}
+		//swap pivot into correct position
 		swap (plist, low, pointer+1);
+		//returning index of the pivot value
 		return pointer-1;
 	}
 }

@@ -90,6 +90,9 @@ public class Driver {
 
 		//QuickSort quicksort = new QuickSort();
 		//quicksort.sort(plist);
+
+		//BucketSort bucketsort = new BucketSort();
+		//bucketsort.sort(plist);
 		
 		//TODO: Write to a new .csv file named whatever the file being read is with "_sorted"
 		//      added to it. So if the file being read is called ratings_Stuff.csv, your file
@@ -104,10 +107,9 @@ public class Driver {
         	FileWriter fw = new FileWriter(filename);
         	PrintWriter pw = new PrintWriter(fw);
         	//print the asins from each product in the arraybased list
-        	for (int x = 0; x < plist.size()-1; x++)
+        	for (int x = 0; x < plist.size(); x++)
         	{
         		pw.println(plist.get(x).toString());
-        		//System.out.println(plist.get(x).toString());
         	}
 
     	}
