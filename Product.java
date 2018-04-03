@@ -98,6 +98,10 @@ public class Product implements Comparable<Product>
     	//find average of the ratings of the key
     	double average = (double)total/ratingsize;
 
+    	if (ratingsize==0)
+    	{
+    		return 0;
+    	}
     	return average;
 
     	//return average;

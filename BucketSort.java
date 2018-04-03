@@ -8,12 +8,13 @@ public class BucketSort
         //TODO: Implement bucket sort. 
 
         //buckets will be an array based list of array based lists
-        ArrayBasedList<ArrayBasedList> buckets = new ArrayBasedList<ArrayBasedList>(5);
+        ArrayBasedList<ArrayBasedList> buckets = new ArrayBasedList<ArrayBasedList>(6);
         //bucket is an array based list of products
         //ArrayBasedList<Product> bucket = new ArrayBasedList<Product>();
 
         //set each arraybasedlist in buckets to bucket, which is an arraybased list of products
-        for (int x = 0; x < 5; x++)
+        //we have 6 buckets for the averages-- 0, 1, 2, 3, 4 , 5 -- 0 would mean empty product list
+        for (int x = 0; x < 6; x++)
         {
         	ArrayBasedList<Product> bucket = new ArrayBasedList<Product>();
         	//set each arraybasedlist in buckets to an arraybasedlist of products
@@ -26,7 +27,7 @@ public class BucketSort
         	Product product = plist.get(i);
         	double average = product.getAverage();
 
-        	int bucketnumber = (int)average-1;
+        	int bucketnumber = (int)average;
 
         	ArrayBasedList chosenbucket = buckets.get(bucketnumber);
         	chosenbucket.add(product);

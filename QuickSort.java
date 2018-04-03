@@ -54,5 +54,4 @@ public class QuickSort
 		swap (plist, low, pointer+1);
 		return pointer-1;
 	}
-
 }

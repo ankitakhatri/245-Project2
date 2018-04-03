@@ -100,7 +100,7 @@ public class Driver {
 		
 			//make the original input name a string, get rid of the extra .csv by using substring, and add _sorted.csv to the end of the new filename
 			String inputfile = input.toString();
-			String filename = inputfile.substring(0, inputfile.length()-4) + "_sorted.csv";
+			String filename = inputfile.substring(0, inputfile.length()-4) + "_result.csv";
         	FileWriter fw = new FileWriter(filename);
         	PrintWriter pw = new PrintWriter(fw);
         	//print the asins from each product in the arraybased list
