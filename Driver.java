@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.io.*;
-import java.util.*;
 
 public class Driver {
 
@@ -22,11 +21,14 @@ public class Driver {
 
         try
         {
-        	BufferedReader br = new BufferedReader(new FileReader (input));System.out.println(input == null);
-        	while ((line = br.readLine()) != null) 
-            {
-            	String stringratings = "";
-            	int [] ratings = new int[10000];
+// Note that if there are no command line arguments input will be null. This will cause a NullPointerException.
+	        	BufferedReader br = new BufferedReader(new FileReader (input));System.out.println(input == null);
+	        	while ((line = br.readLine()) != null) 
+	            {
+	            	String stringratings = "";
+// Note that 10000 is hard coding, so this program will not work for any products with over 10,000 
+// ratings. Even though this is a slim chance, it is not the best practice.
+	            	int [] ratings = new int[10000];
                 String[] elements = line.split(delimiter);
                 String asin= "";
                 Product product = new Product (asin, ratings);
@@ -34,33 +36,35 @@ public class Driver {
 
                 if (elements.length > 0)
                 {
-                	//elements[0] is the asin and elements [1] is the array in string form starting from [ and ending with ]"
-                	asin = elements[0];
-                	product.setAsin(asin);
-                	stringratings = elements[1];
-                	//clean up the string and parse each element into the array ratings, then set as ratings for product
-                	//run for loop through the string indexes, remove brackets and quotes and add to int [] ratings accordingly
-                	for (int k = 0; k < stringratings.length()-1; k++)
-                	{	
-                		if (!stringratings.substring(k, k+1).equals("[") && !stringratings.substring(k, k+1).equals("]") && !stringratings.substring(k, k+1).equals(",") && !stringratings.substring(k, k+1).equals(" "))
-                		{
-                			ratings[m] = Integer.parseInt(stringratings.substring(k, k+1).trim());
-                			m++;
-                		}
-                	}
+	                	//elements[0] is the asin and elements [1] is the array in string form starting from [ and ending with ]"
+	                	asin = elements[0];
+	                	product.setAsin(asin);
+	                	stringratings = elements[1];
+	                	//clean up the string and parse each element into the array ratings, then set as ratings for product
+	                	//run for loop through the string indexes, remove brackets and quotes and add to int [] ratings accordingly
+	                	for (int k = 0; k < stringratings.length()-1; k++)
+	                	{	
+	                		if (!stringratings.substring(k, k+1).equals("[") && !stringratings.substring(k, k+1).equals("]") && !stringratings.substring(k, k+1).equals(",") && !stringratings.substring(k, k+1).equals(" "))
+	                		{
+	                			ratings[m] = Integer.parseInt(stringratings.substring(k, k+1).trim());
+	                			m++;
+	                		}
+	                	}
                 }
                 // product.setRatings(ratings);
 
                 //don't add product to plist if it doesn't have ratings
                 if (product.getRatings().length==0)
                 {
-                	break;
+                		break;
                 }
                 else
                 {
-                	plist.add(product);
+                		plist.add(product);
                 }
             }
+// Remember to close resources	        	
+	        	br.close();
         }
         catch (IOException f) 
         {
@@ -87,6 +91,8 @@ public class Driver {
 		
 		InsertionSort insertionsort = new InsertionSort();
 		insertionsort.sort(plist);
+// Since sort is static, you do not need to create a new Object to call the function.
+// ie. InsertionSort.sort(plist);
 
 		//QuickSort quicksort = new QuickSort();
 		//quicksort.sort(plist);
@@ -103,17 +109,17 @@ public class Driver {
 		
 			//make the original input name a string, get rid of the extra .csv by using substring, and add _sorted.csv to the end of the new filename
 			String inputfile = input.toString();
-			String filename = inputfile.substring(0, inputfile.length()-4) + "_result.csv";
-        	FileWriter fw = new FileWriter(filename);
-        	PrintWriter pw = new PrintWriter(fw);
-        	//print the asins from each product in the arraybased list
-        	for (int x = 0; x < plist.size(); x++)
-        	{
-        		pw.println(plist.get(x).toString());
-        	}
-
-    	}
-
+// [X] Write the _sorted file. Not the _result file.
+			String filename = inputfile.substring(0, inputfile.length()-4) + "_sorted.csv";
+	        	FileWriter fw = new FileWriter(filename);
+	        	PrintWriter pw = new PrintWriter(fw);
+	        	//print the asins from each product in the arraybased list
+	        	for (int x = 0; x < plist.size(); x++)
+	        	{
+	        		pw.println(plist.get(x).toString());
+	        	}
+	        	pw.close();
+	    	}
         catch (IOException f) 
         {
             System.out.println("File not found.");

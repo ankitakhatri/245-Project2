@@ -1,4 +1,5 @@
 import java.util.*;
+// [X] Not functional. Some revisions have been made to be more clear.
 public class QuickSort 
 {
 	//for quicksort, I will use a recursive function to sort the entire list after partitioning
@@ -6,13 +7,16 @@ public class QuickSort
 	public static void sort(ArrayBasedList<Product> plist) 
 	{
 		//TODO: Implement in-place quick sort
-		quickSort (plist, 0, plist.size());
+// [X] Your high is your highest index.
+		if (plist.size()>1) {
+			quickSort (plist, 0, plist.size()-1);
+		}
 	}
 
 	//this is the recursive function that sorts everything to the left and right of the partition
 	private static void quickSort (ArrayBasedList<Product> plist, int low, int high)
 	{
-		if (low > high)
+		if (low < high)
 		{
 			int pivot = partition(plist, low, high);
 			quickSort (plist, low, pivot-1);
@@ -23,8 +27,9 @@ public class QuickSort
 	//choosing a random pivot gives O(nlogn) every time
 	public static int getPivot(int low, int high)
 	{
+// [X] Biggest mistake was here. Your pivot needs to be in range.
 		Random rand = new Random();
-		return rand.nextInt(high);
+		return low+rand.nextInt(high-low+1);
 	}
 
 	//a swap function to make swapping easier
@@ -49,15 +54,17 @@ public class QuickSort
 		for (int i = pointer; i <= high; i++)
 		{
 			Product product1 = plist.get(i);
-            Product product2 = plist.get(low);
+			Product product2 = plist.get(low);
 
-           if (product1.getAverage() > product2.getAverage())
-           {
+			if (product1.getAverage() > product2.getAverage())
+			{
 				swap (plist, i, pointer++);
-           }
+			}
 		}
 		//swap pivot into correct position
-		swap (plist, low, pointer+1);
+// [X] pointer has been incremented after the swap.
+//     Note that pointer++ is different than ++pointer.
+		swap (plist, low, pointer-1);
 		//returning index of the pivot value
 		return pointer-1;
 	}

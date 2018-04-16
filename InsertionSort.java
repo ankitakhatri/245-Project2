@@ -11,11 +11,11 @@ public class InsertionSort
 
         for (i = 1; i< plist.size(); i++)
         {
-        	//compare product1 and product2 using comparable function
+	        	//compare product1 and product2 using comparable function
             //if product1 > product2, don't swap because it returns -1 (if they are the same, returns 0, this is stable/in place so we don't swap)
             //if product2 > product1, you want the higher product in front, so this returns 1, and you swap
-        	for (j = i - 1; j>=0; j--)
-        	{
+	        	for (j = i - 1; j>=0; j--)
+	        	{
                 Product product1 = plist.get(j);
                 Product product2 = plist.get(j+1);
 
@@ -31,8 +31,8 @@ public class InsertionSort
                 {
                     break;
                 }
-        		
-        	}
+	        		
+	        	}
         }
     }
 }

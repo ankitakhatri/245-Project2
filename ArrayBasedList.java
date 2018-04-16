@@ -1,5 +1,4 @@
-import java.util.AbstractList;
-import java.util.*;
+import java.util.AbstractList; 
 
 /**
  * TODO: Implement your own array based list. For full credit,
@@ -14,7 +13,9 @@ public class ArrayBasedList<E> extends AbstractList<E> {
 	private int size;
 	
 	//TODO: Create constructor(s)
-	
+
+// This is not necessary. It just suppresses the warning.
+	@SuppressWarnings("unchecked")
 	public ArrayBasedList() 
 	{
 		// TODO: Complete
@@ -22,6 +23,7 @@ public class ArrayBasedList<E> extends AbstractList<E> {
 		this.size = 0;
 	}
 
+	@SuppressWarnings("unchecked")
 	public ArrayBasedList(int size)
 	{
 		this.arr = (E[]) new Object [size];
@@ -42,7 +44,10 @@ public class ArrayBasedList<E> extends AbstractList<E> {
 		return this.arr[index];
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
+// size does not necessarily need to increase you array size. You can use
+// another method to do that.
 	public int size() 
 	{
 		E newArr[];
@@ -80,6 +85,7 @@ public class ArrayBasedList<E> extends AbstractList<E> {
 	public void add(int index, E element) 
 	{
 		// TODO: Complete
+// [X] Incorrect. Shift everything to the RIGHT of index over one, not left.
 		for (int i = index-1; i >= 0; i--)
 		{
 			arr [i+1] = arr [i];
@@ -107,6 +113,8 @@ public class ArrayBasedList<E> extends AbstractList<E> {
         	arr[i] = arr[i + 1];
       	}
       	this.size--;
+// [X] remove should return the element that was removed. The description
+//     is in the AbstractList java doc.
 		return null;
 	}
 }
