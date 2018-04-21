@@ -113,8 +113,7 @@ public class ArrayBasedList<E> extends AbstractList<E> {
         	arr[i] = arr[i + 1];
       	}
       	this.size--;
-// [X] remove should return the element that was removed. The description
-//     is in the AbstractList java doc.
+// This could return the element that was removed.
 		return null;
 	}
 }
